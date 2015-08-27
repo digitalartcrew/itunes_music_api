@@ -11,6 +11,19 @@ $(document).ready(function() {
         url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
         dataType: 'JSONP'
     })
-    .done(function(data) { console.log(data); })
+
+    .done(function(data) { $('#audio_preview').attr('src', data.results[0].previewUrl); })
     .fail(function(data) { console.log(data); });
+
+ // 
+
+
+
+ $("#audio_preview").on("canplay", function() {
+ $("#audio_preview")[0].play();
+});
+
+
+
+
  });
