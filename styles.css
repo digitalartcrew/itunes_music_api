@@ -1,11 +1,49 @@
 .box{
-	width: 600px;
-	height: 150px;
+	width: 450px;
+	height: 600px;
 	border: 5px solid black;
 	margin: 0 auto;
 }
 
-.test{
+.title {
+	width: 400px;
+	height: 50px;
+	border: 5px solid black;
+	margin: 0 auto;
+}
 
+
+.score {
+	width: 400px;
+	height: 50px;
+	border: 5px solid black;
+	margin: 0 auto;
+}
+
+.response {
+	width: 400px;
+	height: 200px;
+	border: 5px solid black;
+	margin: 0 auto;
+}
+
+.song {
+	width: 400px;
+	height: 50px;
+	border: 5px solid black;
+	margin: 0 auto;
+}
+
+.next {
+	width: 400px;
+	height: 50px;
+	border: 5px solid black;
+	margin: 0 auto;
+}
+
+.start {
+	width: 400px;
+	height: 50px;
+	border: 5px solid black;
 	margin: 0 auto;
 }

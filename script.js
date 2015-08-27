@@ -8,20 +8,42 @@ $(document).ready(function() {
                  "192811017", "640047583", "517438248" ];
 
     $.ajax({
+
         url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
         dataType: 'JSONP'
     })
 
-    .done(function(data) { $('#audio_preview').attr('src', data.results[0].previewUrl); })
-    .fail(function(data) { console.log(data); });
+    
+    .done(function(data) { 
+        
 
- // 
+      console.log(data); 
+
+        function startSong(){
+     var audioElement = $('#audio_preview');
+        audioElement.attr('src', data.results[0].previewUrl);
+        audioElement.attr('autoplay', 'autoplay');
+       
+       // $.get();
+
+        audioElement.on("canplay", function() {
+            audioElement[0].play();
+        });
+
+      
+
+        $('.pause').click(function() {
+            audioElement.Pause();
+        });
+    }
+
+       $(".play").on("click", startSong);
 
 
+   })
 
- $("#audio_preview").on("canplay", function() {
- $("#audio_preview")[0].play();
-});
+    .fail(function(data) { console.log(data);});
+
 
 
 
