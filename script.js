@@ -8,7 +8,7 @@ $(document).ready(function() {
                  "192811017", "640047583", "517438248" ];
 
     $.ajax({
-        url: "https://itunes.apple.com/us/lookup?id="+ songIds[0],
+        url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
         dataType: 'JSONP'
     })
     .done(function(data) { console.log(data); })
