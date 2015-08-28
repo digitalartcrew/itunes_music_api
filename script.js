@@ -15,26 +15,30 @@ $(document).ready(function() {
 
     
     .done(function(data) { 
-        
-
-      console.log(data); 
-
+     
+        console.log(data); 
+        //Start Button
         function startSong(){
-     var audioElement = $('#audio_preview');
-        audioElement.attr('src', data.results[0].previewUrl);
-        audioElement.attr('autoplay', 'autoplay');
-       
-       // $.get();
+         var audioElement = $('#audio_preview');
+         audioElement.attr('src', data.results[0].previewUrl);
+         // audioElement.attr('autoplay', 'autoplay');
 
-        audioElement.on("canplay", function() {
+         audioElement.on("canplay", function() {
             audioElement[0].play();
         });
 
-      
+           $("form").on("submit", function(e){
+            e.preventDefault();
+           var songChoice = $("#songSelect").val();
+    if (songChoice === data.results[0].collectionName || 
+        songChoice === data.results[0].collectionName || songChoice === data.results[0].collectionName ){
+        console.log("You win!");
+         } else{
+          console.log("You lose");
+         }
+});
 
-        $('.pause').click(function() {
-            audioElement.Pause();
-        });
+        // $('.pause').on("click", pauseSong);
     }
 
        $(".play").on("click", startSong);
@@ -42,7 +46,13 @@ $(document).ready(function() {
 
    })
 
+  
+
+    ////////////////
+
     .fail(function(data) { console.log(data);});
+
+
 
 
 
