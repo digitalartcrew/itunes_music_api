@@ -23,6 +23,7 @@ $(document).ready(function() {
          audioElement.attr('src', data.results[0].previewUrl);
          audioElement.on("canplay", function() {
             audioElement[0].play();
+            $("#songSelect").focus();
         });
 
 
@@ -32,21 +33,21 @@ $(document).ready(function() {
             var count =0;
             var songChoice = $("#songSelect").val();
         if (songChoice === data.results[0].artistName){
-        $("h2").text("You win!");
-            console.log("You win!");
+        $("h2").text("Correct.");
+            console.log("Correct.");
             count++;
             $(".scoreUp").text(count);
             console.log(count);
         } else{
         console.log("You lose");
-        $("h2").text("Sorry, wrong answer!");
+        $("h2").text("Incorrect.");
         }
         });
     }
 
     //Play track
        $(".play").on("click", startSong);
-       
+
         })
 
     ////////////////
