@@ -21,42 +21,36 @@ $(document).ready(function() {
         function startSong(){
          var audioElement = $('#audio_preview');
          audioElement.attr('src', data.results[0].previewUrl);
-         // audioElement.attr('autoplay', 'autoplay');
-
          audioElement.on("canplay", function() {
             audioElement[0].play();
         });
 
-           $("form").on("submit", function(e){
-            e.preventDefault();
-           var songChoice = $("#songSelect").val();
-    if (songChoice === data.results[0].artistName){
-     $("h2").text("You win!")
-        console.log("You win!");
-         } else{
-          console.log("You lose");
-          $("h2").text("Sorry, wrong answer!")
-         }
-});
 
-        // $('.pause').on("click", pauseSong);
+     //Submit Form
+     $("form").on("submit", function(e){
+            e.preventDefault();
+            var count =0;
+            var songChoice = $("#songSelect").val();
+        if (songChoice === data.results[0].artistName){
+        $("h2").text("You win!");
+            console.log("You win!");
+            count++;
+            $(".scoreUp").text(count);
+            console.log(count);
+        } else{
+        console.log("You lose");
+        $("h2").text("Sorry, wrong answer!");
+        }
+        });
     }
 
+    //Play track
        $(".play").on("click", startSong);
 
-
-   })
-
-  
+        })
 
     ////////////////
 
-    .fail(function(data) { console.log(data);});
-
-
-
-
-
-
+        .fail(function(data) { console.log(data);});
 
  });
