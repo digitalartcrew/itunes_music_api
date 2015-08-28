@@ -7,7 +7,7 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 
 .box{
 	width: 450px;
-	height: 400px;
+	height: 410px;
 	background-color: #928e96;
 	border: 10px ridge;
 	margin: 0 auto;
@@ -59,4 +59,8 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 	height: 50px;
 	border: 5px solid black;
 	margin: 0 auto;
+}
+
+.next {
+	/*padding-top: 5px;*/
 }
