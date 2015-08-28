@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     //Play track
        $(".play").on("click", startSong);
-
+       
         })
 
     ////////////////
