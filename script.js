@@ -30,11 +30,12 @@ $(document).ready(function() {
            $("form").on("submit", function(e){
             e.preventDefault();
            var songChoice = $("#songSelect").val();
-    if (songChoice === data.results[0].collectionName || 
-        songChoice === data.results[0].collectionName || songChoice === data.results[0].collectionName ){
+    if (songChoice === data.results[0].artistName){
+     $("h2").text("You win!")
         console.log("You win!");
          } else{
           console.log("You lose");
+          $("h2").text("Sorry, wrong answer!")
          }
 });
 
