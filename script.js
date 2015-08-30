@@ -62,11 +62,12 @@ $(document).ready(function() {
              audioElement.on("canplay", function() {
            
             audioElement[0].play();
+            $("#songSelect").val("");
             $("#songSelect").focus();
             });
 
-             $("#songSelect").text("");
            $("h2").text("");
+
             console.log("Next track");
              console.log(data);
         });
