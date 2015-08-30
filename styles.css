@@ -39,6 +39,10 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 	margin: 0 auto;
 }
 
+.right{
+	float: right;
+}
+
 .song {
 	width: 400px;
 	height: 50px;

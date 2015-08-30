@@ -65,6 +65,8 @@ $(document).ready(function() {
             $("#songSelect").focus();
             });
 
+             $("#songSelect").text("");
+           $("h2").text("");
             console.log("Next track");
              console.log(data);
         });
