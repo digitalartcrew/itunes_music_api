@@ -6,37 +6,17 @@ $(document).ready(function() {
                  "325618", "169003415",  "51958108",
                  "76532142", "192688540", "684811768", "344799464", "217633921",
                  "192811017", "640047583", "517438248" ];
+    var data;
+    var audioElement = $('#audio_preview');
+    var count =0;
 
-    $.ajax({
-
-        url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
-        dataType: 'JSONP'
-    })
-
-    
-    .done(function(data) { 
-        
-        var audioElement = $('#audio_preview');
-        
-        //Start Button
-        function startSong(){
-         
-         audioElement.attr('src', data.results[0].previewUrl);
-         audioElement.on("canplay", function() {
-            if (this.paused === false) {
-                this.pause();
-            }else{
-            audioElement[0].play();
-            $("#songSelect").focus();
-            console.log(data); 
-            }});
-
-
-     //Submit Form
+    //Functions
+   
         $("form").on("submit", function(e){
-            e.preventDefault();
-            var count =0;
-            var songChoice = $("#songSelect").val();
+            e.preventDefault();    
+        var songChoice = $("#songSelect").val();
+        $("#songSelect").val("");
+
         if (songChoice === data.results[0].artistName){
         $("h2").text("Correct.");
             console.log("Correct.");
@@ -47,42 +27,53 @@ $(document).ready(function() {
         console.log("You lose");
         $("h2").text("Incorrect.");
         }
-        });    
-        
+        });
+      
+
+    function startSong(){
+        audioElement.attr('src', data.results[0].previewUrl);
+        audioElement.on("canplay", function() {
+        if (this.paused === false){
+            this.pause();
+            }else{
+            audioElement[0].play();
+            $("#songSelect").focus();
+            console.log(data); 
+            }});
+        // submitSong();   
         }
 
-        function grabSong(){
-     
-            audioElement.attr('src', "");
-             $.ajax({
+    function grabSong(){
+        $.ajax({
             url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
             dataType: 'JSONP'
-            }).done(function(data){
+            }).done(function(response){
+                data = response;
             audioElement.attr('src', data.results[0].previewUrl);
-             audioElement.on("canplay", function() {
-           
+            audioElement.on("canplay", function(){
             audioElement[0].play();
             $("#songSelect").val("");
             $("#songSelect").focus();
-            });
-
-           $("h2").text("");
-
-            console.log("Next track");
              console.log(data);
+             // submitSong(); 
+            });
+           $("h2").text("");
+                 
         });
 
         }
 
+
+    $.ajax({
+        url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
+        dataType: 'JSONP'
+    }) 
+    .done(function(response) { 
+        data = response;
     //Play track
         $(".play").on("click", startSong);    
         $("#next-bt").on("click", grabSong);
-
         })
-        
-
         .fail(function(data) { console.log(data);});
-
-        
 
  });
