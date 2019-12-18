@@ -10,6 +10,8 @@ $(document).ready(function() {
     var audioElement = $('#audio_preview');
     var count =0;
 
+    //Some note
+
     //Functions
    
         $("form").on("submit", function(e){
