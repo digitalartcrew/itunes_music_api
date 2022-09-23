@@ -1,8 +1,7 @@
 body {
-
 	background-color: #0b638e !important;
-background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+	background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .box{
@@ -10,8 +9,8 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 	height: 410px;
 	background-color: #928e96;
 	border: 10px ridge;
-	margin: 0 auto;
-	margin-top: 100px;
+	margin: 100px auto 0 auto;
+	/* border: 2px solid red; */
 }
 
 .title {
@@ -20,8 +19,8 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 	background-color: #3baae2;
 	border: 5px ridge;
 	margin: 0 auto;
+	/* border: 2px solid red; */
 }
-
 
 .score {
 	width: 400px;
@@ -29,6 +28,7 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 	background-color: white;
 	border: 5px ridge;
 	margin: 0 auto;
+	/* border: 2px solid red; */
 }
 
 .response {
@@ -37,11 +37,7 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 	background-color: #3baae2;
 	border: 5px ridge;
 	margin: 0 auto;
-}
-
-
-.right{
-	float: right;
+	/* border: 2px solid red; */
 }
 
 .song {
@@ -50,22 +46,27 @@ background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
 	border: 5px ridge;
 	background-color: white;
 	margin: 0 auto;
+	/* border: 2px solid red; */
 }
 
-.next {
-	width: 400px;
-	height: 50px;
-	border: 5px solid black;
-	margin: 0 auto;
+.center {
+	text-align: center;
 }
 
-.start {
-	width: 400px;
-	height: 50px;
-	border: 5px solid black;
-	margin: 0 auto;
+.response * {
+	text-align: center;
 }
 
-.next {
-	/*padding-top: 5px;*/
+.btn-group button:nth-child(1) {
+	/* border: 2px solid gold; */
+	display: inline-block;
+	width: 15%;
+	margin: 10px 2.5px 0 150px;
+}
+
+.btn-group button:nth-child(2) {
+	/* border: 2px solid salmon; */
+	display: inline-block;
+	width: 15%;
+	margin: 10px 0 0 2.5px;
 }
