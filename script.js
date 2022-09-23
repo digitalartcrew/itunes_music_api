@@ -1,30 +1,59 @@
-document.querySelector('button').addEventListener('click', getFetch)
+document.querySelector('.play').addEventListener('click', playSong);
+// document.querySelector('#next-bt').addEventListener('click', grabNextSong);
+document.querySelector('#next-bt').addEventListener('click', grabSong);
 
-function getFetch() {
-    const songIds = ["995535015", "966411602", "823593456", "956689796", "943946671", "982388023", "907242704", "201281527", "656801339", "910038357", "250038575", "878000348",  "794095205",  "1645339",  "400835962", "325618", "169003415",  "51958108", "76532142", "192688540", "684811768", "344799464", "217633921", "192811017", "640047583", "517438248"];
-    let data;
-    let audioElement = document.querySelector('audio');
-    let count = 0;
-    
+
+const songIds = ["995535015", "966411602", "823593456", "956689796", "943946671", "982388023", "907242704", "201281527", "656801339", "910038357", "250038575", "878000348",  "794095205",  "1645339",  "400835962", "325618", "169003415",  "51958108", "76532142", "192688540", "684811768", "344799464", "217633921", "192811017", "640047583", "517438248"];
+let randomSong = songIds[Math.ceil(Math.random() * songIds.length - 1)];
+let url = `https://itunes.apple.com/us/lookup?id=${randomSong}`
+var artist = '';
+var score = 0;
+fetch(url)
+.then(response => response.json())
+.then(data => {
+    console.log('ready')
+    artist = data.results[0].artistName.toLowerCase();
+})
+
+document.querySelector('.scoreUp').innerHTML = `${score}`;
+document.querySelector('#songSelect').addEventListener('keypress', (event) => {
     const song = document.querySelector('#songSelect').value;
-    const url = `https://itunes.apple.com/us/lookup?id=${songIds}`;
+    if (event.key === 'Enter') {
+        event.preventDefault();
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            console.log(data.results[0]);
-            console.log(data.results[0].artistName);    // Output -> Wiz Khalifa
-            console.log(data.results[0].trackName);     // Output -> See You Again (feat. Charlie Puth)
-            console.log(data.results[0].previewUrl);    // Output -> .m4a file
-            console.log(data.results[0].trackViewUrl);  // Output -> music.apple url
-            audioElement.src = data.results[0].previewUrl;  // Inserts audio src
-            audioElement.play();                            // Calls play function & starts audio
-        })
-        .catch(err => {
-            console.log(`Error: ${err}`)
-        });
+        if ((song.toLowerCase() === artist.toLowerCase()) || song === artist) {
+            document.querySelector('h2').innerText = `Correct!`;
+            document.querySelector('.scoreUp').innerHTML = `${score + 1}`;
+        } else {
+            document.querySelector('h2').innerText = 'Guess again.';
+        }
     }
+})
+
+async function playSong() {
+    const audioElement = document.querySelector('audio');
+    const response = await fetch(url);
+    const data = await response.json();
+
+    console.log(data.results[0]);
+    console.log(data.results[0].artistName);
+
+    audioElement.src = data.results[0].previewUrl;
+    audioElement.play();
+}
+
+// TODO
+// async function grabNextSong() {
+//     const audioElement = document.querySelector('audio');
+//     const response = await fetch(url);
+//     const data = await response.json();
+
+//     console.log(data.results[0]);
+//     console.log(data.results[0].artistName);
+
+//     audioElement.src = data.results[0].previewUrl;
+//     audioElement.play();
+// }
 
 //     //Functions
    
@@ -59,25 +88,27 @@ function getFetch() {
 //         // submitSong();   
 //         }
 
-//     function grabSong(){
-//         $.ajax({
-//             url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
-//             dataType: 'JSONP'
-//             }).done(function(response){
-//                 data = response;
-//             audioElement.attr('src', data.results[0].previewUrl);
-//             audioElement.on("canplay", function(){
-//             audioElement[0].play();
-//             $("#songSelect").val("");
-//             $("#songSelect").focus();
-//              console.log(data);
-//              // submitSong(); 
-//             });
-//            $("h2").text("");
-                 
-//         });
+    function grabSong(){
+    const audioElement = document.querySelector('audio');
 
-//         }
+        $.ajax({
+            url: "https://itunes.apple.com/us/lookup?id="+ _.sample(songIds),
+            dataType: 'JSONP'
+            }).done(function(response){
+                data = response;
+            audioElement.attr('src', data.results[0].previewUrl);
+            audioElement.on("canplay", function(){
+            audioElement[0].play();
+            $("#songSelect").val("");
+            $("#songSelect").focus();
+             console.log(data);
+             // submitSong(); 
+            });
+           $("h2").text("");
+                 
+        });
+
+        }
 
 
 //     $.ajax({
