@@ -2,16 +2,18 @@ document.querySelector('.play').addEventListener('click', playSong);
 // document.querySelector('#next-bt').addEventListener('click', grabNextSong);
 document.querySelector('#next-bt').addEventListener('click', grabSong);
 
+// These songs result in promise error: [2500385, 794095205, 823593456, 956689796, 1645339, 910038357, 192811017, 656801339, 517438248, 325618, 76532142, 995535015]
 
-const songIds = ["995535015", "966411602", "823593456", "956689796", "943946671", "982388023", "907242704", "201281527", "656801339", "910038357", "250038575", "878000348",  "794095205",  "1645339",  "400835962", "325618", "169003415",  "51958108", "76532142", "192688540", "684811768", "344799464", "217633921", "192811017", "640047583", "517438248"];
+const songIds = ["966411602", "943946671", "982388023", "201281527", "878000348", "169003415",  "51958108", "192688540", "684811768", "344799464", "217633921", "640047583"];
 let randomSong = songIds[Math.ceil(Math.random() * songIds.length - 1)];
 let url = `https://itunes.apple.com/us/lookup?id=${randomSong}`
+
 var artist = '';
 var score = 0;
 fetch(url)
 .then(response => response.json())
 .then(data => {
-    console.log('ready')
+    console.log(`ready using song ${randomSong}`)
     artist = data.results[0].artistName.toLowerCase();
 })
 
