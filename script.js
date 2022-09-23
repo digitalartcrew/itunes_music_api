@@ -31,6 +31,7 @@ document.querySelector('#songSelect').addEventListener('keypress', (event) => {
             document.querySelector('h2').innerText = `Correct!`;
             localStorage.setItem("Score", currentScore);
             document.querySelector('.scoreUp').innerHTML = `${localStorage.getItem('Score')}`;
+            grabNextSong();
         } else {
             document.querySelector('h2').innerText = 'Guess again.';
         }
