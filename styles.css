@@ -70,3 +70,29 @@ body {
 	width: 15%;
 	margin: 10px 0 0 2.5px;
 }
+
+/****************************************************************************
+* Media Queries
+*****************************************************************************/
+
+@media screen and (max-device-width: 1440px) {
+    .title {
+		font-size: 2rem;
+	}
+
+	.score {
+		font-size: 2rem;
+	}
+
+  }
+
+@media screen and (max-device-width: 1024px) {
+	.title {
+		font-size: 2rem;
+	}
+
+	.score {
+		font-size: 2rem;
+	}
+
+  }
