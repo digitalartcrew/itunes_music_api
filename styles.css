@@ -1,3 +1,11 @@
+*, 
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
 body {
 	background-color: #0b638e !important;
 	background-image: url(http://www.transparenttextures.com/patterns/batthern.png);
@@ -5,17 +13,21 @@ body {
 }
 
 .box{
-	width: 450px;
-	height: 410px;
+	width: 43rem;
+	height: 41rem;
 	background-color: #928e96;
 	border: 10px ridge;
 	margin: 100px auto 0 auto;
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	/* border: 2px solid red; */
 }
 
 .title {
-	width: 400px;
-	height: 50px;
+	width: 40rem;
+	height: 5rem;
 	background-color: #3baae2;
 	border: 5px ridge;
 	margin: 0 auto;
@@ -23,8 +35,8 @@ body {
 }
 
 .score {
-	width: 400px;
-	height: 80px;
+	width: 40rem;
+	height: 8rem;
 	background-color: white;
 	border: 5px ridge;
 	margin: 0 auto;
@@ -32,8 +44,8 @@ body {
 }
 
 .response {
-	width: 400px;
-	height: 160px;
+	width: 40rem;
+	height: 15rem;
 	background-color: #3baae2;
 	border: 5px ridge;
 	margin: 0 auto;
@@ -41,8 +53,8 @@ body {
 }
 
 .song {
-	width: 400px;
-	height: 50px;
+	width: 40rem;
+	height: 5rem;
 	border: 5px ridge;
 	background-color: white;
 	margin: 0 auto;
@@ -76,23 +88,126 @@ body {
 *****************************************************************************/
 
 @media screen and (max-device-width: 1440px) {
-    .title {
-		font-size: 2rem;
+	
+	.box {
+		width: 55rem;
+		height: 52rem;
 	}
-
+	.title {
+		font-size: 4rem;
+		width: 50rem;
+		height: 8rem;
+	}
 	.score {
+		font-size: 3.5rem;
+		height: 12rem;
+		width: 50rem;
+	}
+	.response {
 		font-size: 2rem;
+		width: 50rem;
+		height: 18rem;
+	}
+	.song {
+		width: 50rem;
+	}
+	.btn-group button:nth-child(1) {
+		height: 4rem;
+		margin: 10px 2.5px 0 200px;
+
+	}
+	
+	.btn-group button:nth-child(2) {
+		height: 4rem;
 	}
 
   }
 
-@media screen and (max-device-width: 1024px) {
+@media screen and (max-device-width: 768px) {
+
+	.box {
+		width: 45rem;
+		height: 50rem;
+	}
 	.title {
 		font-size: 2rem;
+		width: 40rem;
 	}
-
 	.score {
 		font-size: 2rem;
+		width: 40rem;
+	}
+	.response {
+		width: 40rem;
+		height: 18rem;
+	}
+	.song {
+		width: 40rem;
+	}
+	.btn-group button:nth-child(1) {
+		/* border: 2px solid gold; */
+		display: inline-block;
+		width: 15%;
+		margin: 10px 2.5px 0 150px;
+	}
+
+  }
+
+  @media screen and (max-device-width: 525px) {
+	.box {
+		width: 35rem;
+		height: 50rem;
+	}
+	.title {
+		font-size: 2rem;
+		width: 30rem;
+	}
+	.score {
+		font-size: 2rem;
+		width: 30rem;
+	}
+	.response {
+		width: 30rem;
+		height: 18rem;
+	}
+	.song {
+		width: 30rem;
+	}
+	.btn-group button:nth-child(1) {
+		/* border: 2px solid gold; */
+		display: inline-block;
+		width: 15%;
+		margin: 10px 2.5px 0 100px;
+	}
+
+  }
+
+  @media screen and (max-device-width: 325px) {
+	
+	.box {
+		width: 30rem;
+		height: 50rem;
+	}
+	.title {
+		font-size: 2rem;
+		width: 25rem;
+	}
+	.score {
+		font-size: 2rem;
+		width: 25rem;
+	}
+	.response {
+		width: 25rem;
+		height: 18rem;
+	}
+	.song {
+		width: 25rem;
+	}
+	.btn-group button:nth-child(1) {
+		/* border: 2px solid gold; */
+		display: inline-block;
+		width: 15%;
+		margin: 10px 2.5px 0 100px;
 	}
 
   }
