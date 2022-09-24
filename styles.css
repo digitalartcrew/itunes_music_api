@@ -54,7 +54,7 @@ body {
 
 .song {
 	width: 40rem;
-	height: 5rem;
+	height: 7rem;
 	border: 5px ridge;
 	background-color: white;
 	margin: 0 auto;
@@ -83,6 +83,12 @@ body {
 	margin: 10px 0 0 2.5px;
 }
 
+
+
+audio {
+	display: block;
+	margin-left: 4rem;
+}
 /****************************************************************************
 * Media Queries
 *****************************************************************************/
@@ -175,6 +181,11 @@ body {
 		display: inline-block;
 		width: 15%;
 		margin: 10px 2.5px 0 100px;
+	}
+	audio {
+		display: block;
+		margin-left: 1.5rem;
+		width: 90%;
 	}
 
   }
