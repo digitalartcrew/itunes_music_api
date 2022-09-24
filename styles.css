@@ -106,9 +106,11 @@ body {
 		width: 50rem;
 	}
 	.response {
-		font-size: 2rem;
 		width: 50rem;
 		height: 18rem;
+	}
+	.response p {
+		font-size: 1.9rem;
 	}
 	.song {
 		width: 50rem;
@@ -165,9 +167,11 @@ body {
 		width: 30rem;
 	}
 	.response {
-		font-size: 1rem;
 		width: 30rem;
 		height: 18rem;
+	}
+	.response p {
+		font-size: 1.5rem;
 	}
 	.song {
 		width: 30rem;
@@ -199,7 +203,6 @@ body {
 		width: 25rem;
 	}
 	.response {
-		font-size: 1rem;
 		width: 25rem;
 		height: 18rem;
 	}
