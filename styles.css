@@ -59,6 +59,8 @@ body {
 	background-color: white;
 	margin: 0 auto;
 	/* border: 2px solid red; */
+	display: flex;
+	justify-content: center;
 }
 
 .center {
@@ -83,12 +85,6 @@ body {
 	margin: 10px 0 0 2.5px;
 }
 
-
-
-audio {
-	display: block;
-	margin-left: 4rem;
-}
 /****************************************************************************
 * Media Queries
 *****************************************************************************/
@@ -129,7 +125,7 @@ audio {
 
 	.box {
 		width: 45rem;
-		height: 50rem;
+		height: 52rem;
 	}
 	.title {
 		font-size: 2rem;
@@ -158,7 +154,7 @@ audio {
   @media screen and (max-device-width: 525px) {
 	.box {
 		width: 35rem;
-		height: 50rem;
+		height: 52rem;
 	}
 	.title {
 		font-size: 2rem;
@@ -183,8 +179,6 @@ audio {
 		margin: 10px 2.5px 0 100px;
 	}
 	audio {
-		display: block;
-		margin-left: 1.5rem;
 		width: 90%;
 	}
 
@@ -194,7 +188,7 @@ audio {
 	
 	.box {
 		width: 30rem;
-		height: 50rem;
+		height: 52rem;
 	}
 	.title {
 		font-size: 2rem;
