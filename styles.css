@@ -141,6 +141,9 @@ body {
 		width: 40rem;
 		height: 18rem;
 	}
+	.response p {
+		font-size: 1.5rem;
+	}
 	.song {
 		width: 40rem;
 	}
