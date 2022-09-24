@@ -17,7 +17,9 @@ var artist = '';
 fetch(url, {method: 'POST',mode: 'cors',headers: {'Content-Type': 'application/json'}})
 .then(response => response.json())
 .then(data => {
+    const audioElement = document.querySelector('audio');
     artist = data.results[0].artistName;
+    audioElement.src = data.results[0].previewUrl;
 })
 // Input eventlistener
 document.querySelector('#songSelect').addEventListener('keypress', (event) => {
